@@ -135,6 +135,7 @@ def test_symmetric(a: float, b: float) -> None:
     """
     assert_close(mul(a, b), mul(b, a))
 
+
 @pytest.mark.task0_2
 @given(small_floats, small_floats, small_floats)
 def test_distribute(a: float, b: float, c: float) -> None:
@@ -143,6 +144,7 @@ def test_distribute(a: float, b: float, c: float) -> None:
     :math:`z \times (x + y) = z \times x + z \times y`
     """
     assert_close(mul(a, add(b, c)), add(mul(a, b), mul(a, c)))
+
 
 @pytest.mark.task0_2
 @given(small_floats)
@@ -180,6 +182,7 @@ def test_sum_distribute(ls1: List[float], ls2: List[float]) -> None:
     """
     # TODO: Implement for Task 0.3.
     assert_close(add(minitorch.operators.sum(ls1), minitorch.operators.sum(ls2)), minitorch.operators.sum(addLists(ls1, ls2)))
+
 
 @pytest.mark.task0_3
 @given(lists(small_floats))

@@ -43,11 +43,12 @@ def mul(x: float, y: float) -> float:
     Args:
         x: Number of float type
         y: Number of float type
-    
+
     Returns:
         Value of x multipled by y
     """
     return x * y
+
 
 def id(x: float) -> float:
     """
@@ -55,11 +56,12 @@ def id(x: float) -> float:
 
     Args:
         x: Input of float type
-    
+
     Returns:
         Input x
     """
     return x
+
 
 def add(a: float, b: float) -> float:
     """
@@ -68,11 +70,12 @@ def add(a: float, b: float) -> float:
     Args:
         a: Number of float type
         b: Number of float type
-    
+
     Returns:
         Value of a added with b
     """
     return a + b
+
 
 def neg(x: float) -> float:
     """
@@ -85,6 +88,7 @@ def neg(x: float) -> float:
         Value of x multipled by -1
     """
     return -1 * x
+
 
 def lt(x: float, y: float) -> bool:
     """
@@ -99,6 +103,7 @@ def lt(x: float, y: float) -> bool:
     """
     return x < y
 
+
 def eq(x: float, y: float) -> bool:
     """
     Checks if two numbers are equal
@@ -111,6 +116,7 @@ def eq(x: float, y: float) -> bool:
         Truth value of whether x is equal to y
     """
     return x == y
+
 
 def max(x: float, y: float) -> float:
     """
@@ -127,7 +133,8 @@ def max(x: float, y: float) -> float:
         return y
     else:
         return x
-    
+
+
 def is_close(x: float, y: float) -> bool:
     """
     Checks if the two numbers are within 1e-5 of each other
@@ -135,7 +142,7 @@ def is_close(x: float, y: float) -> bool:
     Args:
         x: Number of float type
         y: Number of float type
-    
+
     Returns:
         Truth value of whether x and y are within 1e-5 of each other
     """
@@ -143,7 +150,7 @@ def is_close(x: float, y: float) -> bool:
         return True
     else:
         return False
-    
+
 
 def inv(x: float) -> float:
     """
@@ -157,10 +164,11 @@ def inv(x: float) -> float:
     """
     return 1 / x
 
-def inv_back(x: float, y:float) -> float:
+
+def inv_back(x: float, y: float) -> float:
     """
     Computes the derivative of reciprocal of variable times a second arg
-    
+
     Args:
         x: Number of float type, variable you take derivative of
         y: Number of float type
@@ -168,7 +176,8 @@ def inv_back(x: float, y:float) -> float:
     Returns:
         Value of derivative of reciprocal of variable x times number y
     """
-    return -y/x**2
+    return -y / x**2
+
 
 def log_back(x: float, y: float) -> float:
     """
@@ -177,11 +186,12 @@ def log_back(x: float, y: float) -> float:
     Args:
         x: Number of float type, variable you take derivative of
         y: Number of float type
-    
+
     Returns:
         Value of derivative of log of variable x times number y
     """
-    return y/x
+    return y / x
+
 
 def relu(x: float) -> float:
     """
@@ -198,6 +208,7 @@ def relu(x: float) -> float:
     else:
         return 0
 
+
 def relu_back(x: float, y: float) -> float:
     """
     Computes the derivative of ReLU of variable times a second arg
@@ -213,11 +224,12 @@ def relu_back(x: float, y: float) -> float:
         return y
     else:
         return 0
-    
+
+
 def sigmoid(x: float) -> float:
     """
     Computes the sigmoid function of variable
-    
+
     Args:
         x: Number of float type, variable to apply sigmoid function to
 
@@ -225,9 +237,10 @@ def sigmoid(x: float) -> float:
         Value of sigmoid function applied to variable x
     """
     if x < 0:
-        return math.exp(x)/(1 + math.exp(x))
+        return math.exp(x) / (1 + math.exp(x))
     else:
-        return 1/(1 + math.exp(-x))
+        return 1 / (1 + math.exp(-x))
+
 
 def log(x: float) -> float:
     """
@@ -235,11 +248,12 @@ def log(x: float) -> float:
 
     Args:
         x: Number of float type
-    
+
     Returns:
         Value of natural logarithm of number x
     """
     return math.log(x)
+
 
 def exp(x: float) -> float:
     """
@@ -247,7 +261,7 @@ def exp(x: float) -> float:
 
     Args:
         x: Number of float type
-    
+
     Returns:
         Value of exponential of number x
     """
@@ -274,20 +288,21 @@ def exp(x: float) -> float:
 def map(fn: Callable[[float], float]) -> Callable[[Iterable[float]], Iterable[float]]:
 
     def map_fn(input: Iterable[float]) -> Iterable[float]:
-        res=[]
+        res = []
 
         for el in input:
             res.append(fn(el))
         return res
-    
+
     return map_fn
+
 
 def zipWith(fn: Callable[[float, float], float]) -> Callable[[Iterable[float], Iterable[float]], Iterable[float]]:
 
     def zipWith_fn(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
         res = []
-        
-        done=False
+
+        done = False
 
         iter1 = iter(ls1)
         iter2 = iter(ls2)
@@ -302,7 +317,7 @@ def zipWith(fn: Callable[[float, float], float]) -> Callable[[Iterable[float], I
                 res.append(fn(el1, el2))
 
         return res
-        
+
     return zipWith_fn
 
 
@@ -315,7 +330,7 @@ def reduce(fn: Callable[[float, float], float], start: float) -> Callable[[Itera
             res = fn(el, res)
 
         return res
-    
+
     return reduce_fn
 
 
@@ -326,8 +341,10 @@ def negList(ls: Iterable[float]) -> Iterable[float]:
 def addLists(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
     return zipWith(add)(ls1, ls2)
 
+
 def sum(ls: Iterable[float]) -> float:
     return reduce(add, 0)(ls)
+
 
 def prod(ls: Iterable[float]) -> float:
     return reduce(mul, 1)(ls)
