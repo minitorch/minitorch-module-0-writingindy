@@ -36,6 +36,7 @@ from typing import Callable, Iterable
 
 # TODO: Implement for Task 0.1.
 
+
 def mul(x: float, y: float) -> float:
     """
     Multiplies two numbers
@@ -284,6 +285,7 @@ def exp(x: float) -> float:
 
 
 # TODO: Implement for Task 0.3.
+
 
 def map(fn: Callable[[float], float]) -> Callable[[Iterable[float]], Iterable[float]]:
 
