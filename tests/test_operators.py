@@ -5,7 +5,6 @@ import pytest
 from hypothesis import given
 from hypothesis.strategies import lists
 
-import minitorch
 
 from minitorch import MathTest
 from minitorch.operators import (
