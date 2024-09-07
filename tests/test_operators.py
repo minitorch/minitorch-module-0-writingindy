@@ -5,8 +5,6 @@ import pytest
 from hypothesis import given
 from hypothesis.strategies import lists
 
-import minitorch
-
 from minitorch import MathTest
 from minitorch.operators import (
     add,
@@ -130,8 +128,7 @@ def test_transitive(a: float, b: float, c: float) -> None:
 def test_symmetric(a: float, b: float) -> None:
     """
     Write a test that ensures that :func:`minitorch.operators.mul` is symmetric, i.e.
-    gives the same value regardless of the order of its input.
-    """
+    gives the same value regardless of the order of its input."""
     assert_close(mul(a, b), mul(b, a))
 
 
@@ -140,8 +137,7 @@ def test_symmetric(a: float, b: float) -> None:
 def test_distribute(a: float, b: float, c: float) -> None:
     """
     Write a test that ensures that your operators distribute, i.e.
-    :math:`z \times (x + y) = z \times x + z \times y`
-    """
+    :math:`z \times (x + y) = z \times x + z \times y`"""
     assert_close(mul(a, add(b, c)), add(mul(a, b), mul(a, c)))
 
 
