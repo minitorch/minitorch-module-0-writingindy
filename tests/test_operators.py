@@ -1,4 +1,5 @@
 from typing import Callable, List, Tuple
+
 import minitorch.operators
 import pytest
 from hypothesis import given
@@ -90,7 +91,10 @@ def test_eq(a: float) -> None:
     assert eq(a, a) == 1.0
     assert eq(a, a - 1.0) == 0.0
     assert eq(a, a + 1.0) == 0.0
+
+
 # ## Task 0.2 - Property Testing
+
 # Implement the following property checks
 # that ensure that your operators obey basic
 # mathematical rules.
@@ -148,7 +152,10 @@ def test_other(a: float) -> None:
     Write a test that ensures some other property holds for your functions.
     """
     assert exp(a) > 0
+
+
 # ## Task 0.3  - Higher-order functions
+
 # These tests check that your higher-order functions obey basic
 # properties.
 
@@ -194,7 +201,10 @@ def test_negList(ls: List[float]) -> None:
     check = negList(ls)
     for i, j in zip(ls, check):
         assert_close(i, -j)
+
+
 # ## Generic mathematical tests
+
 # For each unit this generic set of mathematical tests will run.
 
 
